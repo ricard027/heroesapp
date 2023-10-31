@@ -1,3 +1,7 @@
+export interface Hero {
+  id: number
+}
+
 export interface HeroTypes {
   name: string
   combat: number
@@ -5,6 +9,6 @@ export interface HeroTypes {
   id: number
   index: number
   selected: Boolean
-  handleCardClick: (id: number) => void
-  removeCurrentHero: (id: number) => void
+  handleCardClick: (id: Hero) => void
+  removeCurrentHero: (id: any) => void
 }
