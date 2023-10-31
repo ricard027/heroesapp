@@ -49,14 +49,14 @@ const HeroComponent: FunctionComponent<HeroTypes> = ({
       <div className='pt-6'>
         {selected ? (
           <button
-            className='bg-white rounded-lg w-full py-4 px-8 text-black border flex items-center justify-center gap-6'
+            className='bg-white rounded-lg w-full py-4 px-8 text-black border flex items-center justify-center gap-6  hover:border-black'
             onClick={() => removeCurrentHero(index)}
           >
             REMOVE <Trash2 />
           </button>
         ) : (
           <button
-            className='bg-gradient-to-br from-black to-green-950 w-full py-4 px-8 rounded-lg border text-white'
+            className='bg-gradient-to-br from-black to-green-950 w-full py-4 px-8 rounded-lg border text-white opacity-90 hover:opacity-100'
             onClick={() => handleCardClick(id)}
           >
             SELECT HERO

@@ -2,13 +2,13 @@ import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle
 } from '@/components/ui/dialog'
+
 import { checkWhoWon } from '@/utils/check_woh_won'
-import AvatarComponent from './avatar'
+
 import Image from 'next/image'
 
 import { checkatributes } from '@/utils/checkatributes'
@@ -28,9 +28,6 @@ export function Modal({ clear, allHeroes, selecteds }) {
           <DialogTitle className='text-center text-lg justify-center flex-col flex items-center gap-4 w-full'>
             <p className='text-3xl text-green-500 font-bold'>WINNER</p>
             <div className='flex items-center gap-4'>
-              <AvatarComponent
-                image={checking ? fisrtHero.images.xs : secondHero.images.xs}
-              />
               <p>{checking ? fisrtHero.name : secondHero.name}</p>
             </div>
           </DialogTitle>
