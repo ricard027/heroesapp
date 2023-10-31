@@ -74,3 +74,73 @@
     @apply bg-background text-foreground;
   }
 }
+
+.animation_from_left {
+  animation: 0.2s animation_left ease-in forwards;
+}
+
+@keyframes animation_left {
+  from {
+    opacity: 50%;
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 100%;
+  }
+}
+.animation_from_rigth {
+  animation: 0.2s animation_rigth ease-in forwards;
+}
+
+@keyframes animation_rigth {
+  from {
+    opacity: 50%;
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 100%;
+  }
+}
+
+.animation_from_bottom {
+  animation: 0.4s animation_bottom ease-in forwards;
+}
+
+@keyframes animation_bottom {
+  from {
+    opacity: 50%;
+    transform: translateY(100px);
+  }
+  to {
+    transform: translatey(0);
+    opacity: 100%;
+  }
+}
+.animation_fade_in {
+  animation: 0.8s animation_bottom ease-in forwards;
+}
+
+@keyframes animation_bottom {
+  from {
+    opacity: 50%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+.animation_winner {
+  animation: 1s animation_winner ease-in forwards;
+}
+
+@keyframes animation_winner {
+  from {
+    opacity: 50%;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}

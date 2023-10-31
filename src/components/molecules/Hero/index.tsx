@@ -17,7 +17,7 @@ const HeroComponent: FunctionComponent<HeroTypes> = ({
   return (
     <li
       className={`flex flex-col justify-between bg-white rounded-lg md:w-autosm:w-full relative p-6 border border-gray-50 
-       ${selected && 'border-black'}`}
+       ${selected && '!border-black'}`}
       key={id}
     >
       <div className='relative'>
