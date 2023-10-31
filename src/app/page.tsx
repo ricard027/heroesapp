@@ -1,14 +1,17 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import { getHeroes } from '@/utils/getheroes'
 
 import HeroComponent from '@/components/molecules/Hero'
 import { Modal } from '@/components/molecules/modal'
+import HeaderComponent from '@/components/organisms/header'
+import { HeroesContext } from '@/context/heroes_context'
 
 export default function Home({ initialData }) {
   const [selectedCards, setSelectedCards] = useState([])
-  const [heroes, setHeroes] = useState([])
+
+  const { filteredHeroes, setHeroes, heroes } = useContext(HeroesContext)
 
   useEffect(() => {
     if (!initialData) {
@@ -47,9 +50,11 @@ export default function Home({ initialData }) {
       setSelectedCards(filtered)
     }
   }
-
+  const currentArrayHeroes = filteredHeroes ? filteredHeroes : heroes
   return (
     <main className='flex min-h-screen flex-col items-center container  m-auto'>
+      <HeaderComponent />
+      <div className='h-20 w-full' />
       {isReady && (
         <Modal
           clear={clearSelecteds}
@@ -59,7 +64,7 @@ export default function Home({ initialData }) {
       )}
       <h1 className='text-6xl py-10 text-left w-full'>Heroes app</h1>
       <ul className='grid md:grid-cols-4 gap-4 sm:grid-cols-2 w-full  '>
-        {heroes.slice(0, 40).map((data: any, index: number) => (
+        {currentArrayHeroes.slice(0, 40).map((data: any, index: number) => (
           <HeroComponent
             name={data.name}
             combat={data.powerstats.combat}
