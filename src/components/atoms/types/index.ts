@@ -5,7 +5,9 @@ export interface Hero {
 export interface HeroTypes {
   name: string
   combat: number
-  image: string
+  image: {
+    lg: string
+  }
   id: number
   index: number
   selected: Boolean
