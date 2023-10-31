@@ -3,13 +3,15 @@ import { useContext, useEffect, useState } from 'react'
 
 import { getHeroes } from '@/utils/getheroes'
 
-import HeroComponent from '@/components/molecules/Hero'
 import { Modal } from '@/components/molecules/modal'
+import HeroComponent from '@/components/molecules/Hero'
 import HeaderComponent from '@/components/organisms/header'
-import { HeroesContext } from '@/context/heroes_context'
 
-export default function Home({ initialData }) {
-  const [selectedCards, setSelectedCards] = useState([])
+import { HeroesContext } from '@/context/heroes_context'
+import { Hero } from '@/components/atoms/types'
+
+export default function Home({ initialData }: any) {
+  const [selectedCards, setSelectedCards] = useState<Hero[]>([])
 
   const { filteredHeroes, setHeroes, heroes } = useContext(HeroesContext)
 
@@ -27,7 +29,7 @@ export default function Home({ initialData }) {
     }
   }, [initialData])
 
-  const handleCardClick = (id: number) => {
+  const handleCardClick = (id: Hero) => {
     if (selectedCards.length < 2) {
       if (selectedCards.includes(id)) {
         setSelectedCards(selectedCards.filter((cardId) => cardId !== id))
@@ -43,8 +45,7 @@ export default function Home({ initialData }) {
   }
 
   const removeCurrentHero = (id: number) => {
-    const current = selectedCards.splice(id, selectedCards.length)
-    const filtered = selectedCards.filter((hero) => hero.id !== current.id)
+    const filtered = selectedCards.filter((hero) => hero.id !== id)
 
     if (filtered) {
       setSelectedCards(filtered)
@@ -72,7 +73,7 @@ export default function Home({ initialData }) {
             id={data.id}
             index={index}
             key={data.id}
-            selected={selectedCards?.includes(data?.id) ?? ''}
+            selected={selectedCards?.includes(data?.id)}
             handleCardClick={handleCardClick}
             removeCurrentHero={removeCurrentHero}
           />

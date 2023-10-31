@@ -26,9 +26,15 @@ import Image from 'next/image'
 import { checkatributes } from '@/utils/checkatributes'
 import { DialogClose } from '@radix-ui/react-dialog'
 
-export function Modal({ clear, allHeroes, selecteds }) {
-  const fisrtHero = allHeroes.find((hero) => hero.id === selecteds[0])
-  const secondHero = allHeroes.find((hero) => hero.id === selecteds[1])
+interface Modalprops {
+  clear: () => void
+  allHeroes: any
+  selecteds: any
+}
+
+export function Modal({ clear, allHeroes, selecteds }: Modalprops) {
+  const fisrtHero = allHeroes.find((hero: any) => hero.id === selecteds[0])
+  const secondHero = allHeroes.find((hero: any) => hero.id === selecteds[1])
 
   const checking = checkWhoWon(fisrtHero.powerstats, secondHero.powerstats)
 
