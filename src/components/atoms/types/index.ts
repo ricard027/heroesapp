@@ -3,4 +3,8 @@ export interface HeroTypes {
   combat: number
   image: string
   id: number
+  index: number
+  selected: Boolean
+  handleCardClick: (id: number) => void
+  removeCurrentHero: (id: number) => void
 }
