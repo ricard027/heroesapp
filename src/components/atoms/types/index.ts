@@ -8,7 +8,7 @@ export interface HeroTypes {
   image: {
     lg: string
   }
-  id: number
+  id: any
   index: number
   selected: Boolean
   handleCardClick: (id: Hero) => void
